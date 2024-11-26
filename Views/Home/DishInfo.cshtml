@@ -1,0 +1,16 @@
+﻿@{
+}
+@model ActualSite.Dish
+<div>
+    <div className='d-flex align-items-center justify-content-center'>
+        <h0 class="my-3">@Model.Name</h0>
+        <img scr=@Model.ImageUrl alt='pic' />
+    </div>
+    <div className='d-flex align-items-center'>
+        <p class="mx-2 mx-3">Description:</p>
+        <h3 class="mx-1 my-3 text-wrap">@Model.Description</h3>
+    </div>
+    <div>
+        <p class="my-3 mx-2"> Price: @Model.Price</p>
+    </div>
+</div>

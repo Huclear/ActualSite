@@ -1,0 +1,30 @@
+﻿@model ActualSite.Dish
+@{
+    ViewBag.Title = "Dish adding";
+}
+
+<form asp-action="create" asp-controller="home">
+    <div class="form-group">
+        <label asp-for="Name" className='d-flex align-items-center justify-content-center'>Name: </label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" className='d-flex align-items-center justify-content-center'>Descriptio: </label>
+        <input type="text" asp-for="Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NetMass" className='d-flex align-items-center justify-content-center'>Net mass: </label>
+        <input type="number" asp-for="NetMass" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price" className='d-flex align-items-center justify-content-center'>Price: </label>
+        <input type="number" asp-for="Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Rating" className='d-flex align-items-center justify-content-center'>Rating: </label>
+        <input type="number" asp-for="Rating" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Send" class="btn btn-default" />
+    </div>
+</form>

@@ -1,0 +1,30 @@
+﻿@model ActualSite.Dish
+@{
+	ViewBag.Title = "confirm Delete";
+}
+<div>
+	<dl class="dl-horizontal">
+		<dt>Name</dt>
+		<dd>
+			@Html.DisplayFor(Model => Model.Name)
+		</dd>
+
+		<dt>Description</dt>
+		<dd>
+			@Html.DisplayFor(Model => Model.Description)
+		</dd>
+
+		<dt>Price</dt>
+		<dd>
+			@Html.DisplayFor(Model => Model.Price)
+		</dd>
+	</dl>
+
+	<div>
+		<form asp-controller="home" asp-action="Delete" method="post">
+			<div class="form-group">
+				<input type="submit" class="btn btn-default" value="Delete" />
+			</div>
+		</form>
+	</div>
+</div>

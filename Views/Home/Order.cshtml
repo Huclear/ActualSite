@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Order";
+}
+<h2 class="text-uppercase text-center mb-5">@ViewData["Title"]</h2>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
+            @for (int i = 0; i < 10; i++)
+            {
+                <div class="d-flex justify-content-between p-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="~/image.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <button class="btn btn-warning">Remove from order</button>
+                            <a asp-area="" asp-controller="Home" asp-action="DishInfo" class="btn btn-primary my-1">Info</a>
+                            <h6>Price: 23.34</h6>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

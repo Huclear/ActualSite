@@ -1,0 +1,43 @@
+﻿@{  
+    ViewData["Title"] = "Dishes";
+}
+@model IEnumerable<ActualSite.Dish>
+
+<h2 class="text-uppercase text-center mb-5">@ViewData["Title"]</h2>
+<div class="container py-5">
+    <a asp-area="" asp-controller="Home" asp-action="Create" class="btn btn-primary my-1">Add new Dish</a>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
+            @foreach (var item in Model)
+                {
+                <div class="d-flex justify-content-between p-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="~/image.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p class="card-text">@item.Description</p>
+                            <button class="btn btn-primary">Add to order</button>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a asp-area="" asp-controller="Home" asp-action="DishInfo" asp-route-id="@item.IdDish" class="btn btn-primary my-1">Info</a>
+                                    </td>
+
+                                    <td>
+                                        <a asp-area = "" asp-controller="Home" asp-action="Edit" asp-route-id="@item.IdDish" class="btn btn-primary my-1">Edit</a>
+                                    </td>
+
+                                    <td>
+                                        <a asp-controller="Home" asp-action="Delete" asp-route-id="@item.IdDish" class="btn btn-primary my-1">Delete</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <h6>Price: @item.Price</h6>
+                        </div>
+                    </div>
+                </div>
+                }
+        </div>
+    </div>
+</div>
