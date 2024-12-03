@@ -24,6 +24,8 @@ builder.Services.AddAuthorization(opts =>
         policy.RequireClaim(ClaimTypes.Role, "Admin");
     });
 });
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
 builder.Services.AddAuthentication(opts =>
 {
     opts.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -53,6 +55,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseSession();
 
 app.UseStaticFiles(new StaticFileOptions
 {

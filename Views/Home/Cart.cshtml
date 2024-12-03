@@ -1,27 +1,22 @@
-﻿@{  
+﻿@{
     ViewData["Title"] = "Dishes";
 }
-@model IEnumerable<ActualSite.Dish>
+@model IEnumerable<ActualSite.CartDish>
 
 <h2 class="text-uppercase text-center mb-5">@ViewData["Title"]</h2>
 <div class="container py-5">
-    <a asp-area="" asp-controller="Home" asp-action="Create" class="btn btn-primary my-1">Add new Dish</a>
-
+    <p class="card-text">Total price: @Model.Sum(d => d.Price* d.Quantity)</p>
     <div class="row">
         <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
             @foreach (var item in Model)
-                {
+            {
                 <div class="d-flex justify-content-between p-3">
                     <div class="card" style="width: 18rem;">
                         <img src="~/image.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">@item.Name</h5>
                             <p class="card-text">@item.Description</p>
-                            <form asp-action="AddToCart" method="post">
-                                <input type="hidden" name="id" value="@item.IdDish"/>
-                                <input type="number" name="quantity" value="1" min="1" max="@int.MaxValue" />
-                                <button type="submit">Add to cart</button>
-                            </form>
+                            <p class="card-text">@item.Quantity</p>
                             <table>
                                 <tr>
                                     <td>
@@ -29,11 +24,10 @@
                                     </td>
 
                                     <td>
-                                        <a asp-area = "" asp-controller="Home" asp-action="Edit" asp-route-id="@item.IdDish" class="btn btn-primary my-1">Edit</a>
-                                    </td>
-
-                                    <td>
-                                        <a asp-controller="Home" asp-action="Delete" asp-route-id="@item.IdDish" class="btn btn-primary my-1">Delete</a>
+                                        <form asp-action="RemoveFromCart" method="post">
+                                            <input type="hidden" name="id" value="@item.IdDish" />
+                                            <button class="btn btn-primary alert" type="submit">Remove from cart to cart</button>
+                                        </form>
                                     </td>
                                 </tr>
                             </table>
@@ -41,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                }
+            }
         </div>
     </div>
 </div>
